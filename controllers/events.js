@@ -7,7 +7,7 @@ const getEvents = async (req, res) => {
     // const filters = req.query;
 
     try {
-        const events = await Event.find();
+        const events = await Event.find().sort({ date: 'desc' });
         res.status(200).json({ success: true, events });
     } catch (error) {
         res.status(404).json({ success: false, error });
